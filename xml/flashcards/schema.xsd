@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://clementsaic.github.io/xml/flashcards/"
+           xmlns="https://clementsaic.github.io/xml/flashcards/">
+
+    <xs:simpleType name="cardtype">
+        <xs:annotation>
+            <xs:documentation>Contains text for a side of the card.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:complexType name="pronunciationtype">
+        <xs:simpleContent>
+            <xs:annotation>
+                <xs:documentation>Provides text-to-speech data for a side of the card.</xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+                <xs:attribute name="lang" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>Specifies the text-to-speech language.</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:element name="cards">
+        <xs:annotation>
+            <xs:documentation>Root element containing the cards in this card set.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="card" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>Defines a card in the set.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="face" type="cardtype"/>
+                            <xs:element name="back" type="cardtype"/>
+                            <xs:element name="pronunciation" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>Contains data for text-to-speech.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:sequence>
+                                            <xs:element name="face" type="pronunciationtype"/>
+                                            <xs:element name="back" type="pronunciationtype" minOccurs="0"/>
+                                        </xs:sequence>
+                                        <xs:element name="back" type="pronunciationtype"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
