@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="https://clementsaic.github.io/xml/flashcards/"
-           xmlns="https://clementsaic.github.io/xml/flashcards/"
+           targetNamespace="https://clementsaic.github.io/xml/flashcards"
+           xmlns="https://clementsaic.github.io/xml/flashcards"
            elementFormDefault="qualified">
 
     <xs:simpleType name="cardtype">
