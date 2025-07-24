@@ -12,6 +12,7 @@ body {
 }
 .scanlines {
     height: 100dvh;
+    pointer-events: none;
     background: linear-gradient(to top, #008b8b3f, #008b8b3f, #009b9b3f, #009b9b3f);
     background-size: 100% 10px;
     animation: linear 0.5s scan infinite;
