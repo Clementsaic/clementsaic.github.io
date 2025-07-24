@@ -7,6 +7,22 @@ html {
 }
 body {
     background-color: darkcyan;
+    overflow: hidden;
+    margin: 0;
+}
+.scanlines {
+    height: 100dvh;
+    background: linear-gradient(to top, #008b8b3f, #008b8b3f, #009b9b3f, #009b9b3f);
+    background-size: 100% 10px;
+    animation: linear 0.5s scan infinite;
+}
+@keyframes scan {
+    from {
+        translate: 0 0;
+    }
+    to {
+        translate: 0 20px;
+    }
 }
 .center-screen {
     position: absolute;
@@ -30,10 +46,3 @@ body {
     border: 5px solid #00C0C0;
     border-radius: 10px;
 }
-/*h1 {*/
-/*    background-color: #00A0A0;*/
-/*    color: lightcyan;*/
-/*    padding: 4px;*/
-/*    border: 2px solid #00C0C0;*/
-/*    border-radius: 5px;*/
-/*}*/
