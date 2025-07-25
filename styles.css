@@ -1,49 +1,86 @@
 @font-face {
     font-family: "Monaspace Xenon";
-    src: url("https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.000/fonts/webfonts/MonaspaceXenon-Regular.woff");
+    src: url("https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.200/fonts/webfonts/MonaspaceXenon-Regular.woff");
 }
 html {
     font-family: "Monaspace Xenon", serif;
 }
 body {
+    color: lightcyan;
     background-color: darkcyan;
-    overflow: hidden;
     margin: 0;
 }
-.scanlines {
-    height: 100dvh;
-    pointer-events: none;
-    background: linear-gradient(to top, #008b8b3f, #008b8b3f, #009b9b3f, #009b9b3f);
+.scanlines:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, #00000000, #00000000, #ffffff0f, #ffffff0f);
     background-size: 100% 10px;
     animation: linear 0.5s scan infinite;
+    pointer-events: none;
 }
 @keyframes scan {
     from {
         translate: 0 0;
     }
     to {
-        translate: 0 20px;
+        translate: 0 10px;
     }
 }
 .center-screen {
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.title {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    font-size: 40px;
+    transition: filter 0.5s;
+    transform: translate(-50%, -50%);
+}
+.title:hover {
+    filter: blur(2px);
 }
 .bordered {
     background-color: #00A0A0;
-    color: lightcyan;
     vertical-align: middle;
-    text-align: justify;
+    text-align: center;
     display:table-cell;
     width: fit-content;
     padding: 10px 20px 5px 20px;
     border: 5px solid #00C0C0;
     border-radius: 10px;
+}
+.island {
+    width: 100%;
+    height: 0;
+    padding-top: 50%;
+    padding-bottom: 50%;
+    background-color: #00A0A0;
+    border: 5px solid #00C0C0;
+    border-radius: 50%;
+    transition: transform .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.island:hover {
+    transform: scale(1.2);
+}
+.glow {
+    animation: glow 10s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #e0ffff;
+    }
+
+    to {
+        text-shadow: 0 0 10px #e0ffff;
+    }
 }
