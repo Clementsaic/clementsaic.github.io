@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clementsaic.github.io/json/reconfig_runspec.schema.json",
+  "title": "Reconfig Run Specification",
+  "description": "A run specification used to set up a reconfiguration problem.",
+  "type": "object",
+  "properties": {
+    "stateType": {
+      "description": "The type of state representation used",
+      "type": "string"
+    },
+    "moves": {
+      "description": "The allowed set of moves",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "algorithm": {
+      "description": "The algorithm to run",
+      "type": "string"
+    },
+    "attributes": {
+      "description": "The state attributes to consider",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "data": {
+      "description": "Any other information to be used by the program",
+      "type": "object"
+    }
+  },
+  "required": [ "stateType", "algorithm" ]
+}
